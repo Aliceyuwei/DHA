@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DHA</title>
+  <link rel="stylesheet" href="./static/css/layout.css">
+  <script src="./static/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="header_ctn">
+        <div class="header_box"></div>
+      </div>
+      <div class="pgsbar_frame">
+        <div class="pgsbar" :style="{width: `${width}%`}"></div>
+      </div>
+    </header>
+    <div class="main_frame">
+      <div class="main_ctn">
+        <div class="bigtitle">
+            I would describe my style as…
+        </div>
+        <div class="img_frame">
+          <div v-for="item in 30" class="img_ctn nl_w33 lg_w33 md_w50 sm_w100">
+            <div class="img_box" @click="nextPage">
+              <img src="./static/img/01.jpg">
+              <p>More Classic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        width: 0,
+      },
+      mounted() {
+        
+      },
+      methods: {
+        init() {
+          
+        },
+        nextPage() {
+          location.href = '/sd_mult.html';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

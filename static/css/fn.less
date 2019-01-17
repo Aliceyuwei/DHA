@@ -1,0 +1,85 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI","微軟正黑體",sans-serif;
+  .WH(100%);
+  color: #404040;
+}
+*{
+  .bx();
+}
+a {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+}
+p{
+  margin: 0;
+}
+img{
+  width: 100%;
+}
+.br(){
+  border: 1px solid red;
+}
+.clear() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+.WH(@WH){
+  width: @WH;
+  height: @WH;
+}
+.room(){
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.bx(){
+  box-sizing: border-box;
+}
+.v_center(){
+  &::before{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+}
+//animate
+@keyframes  show{
+  0% {opacity: 0; transform: translateY(10px);}
+  20%{transform: translateY(0);}
+  100% {opacity: 1;}
+}
+@media (min-width: 1024px){//nl
+  .nl_w25{
+    width: 25%;
+  }
+  .nl_w33{
+    width: 33%;
+  }
+}
+@media (max-width: 1024px){//lg
+  .lg_w33{
+    width: 33%;
+  }
+}
+@media (max-width: 768px){//md
+  .md_w50{
+    width: 50%;
+  }
+}
+@media (max-width: 576px){//sm
+  .sm_w100{
+    width: 100%;
+  }
+}

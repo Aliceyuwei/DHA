@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DHA</title>
+  <link rel="stylesheet" href="./static/css/layout.css">
+  <script src="./static/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="header_ctn">
+        <div class="header_box"></div>
+      </div>
+      <div class="pgsbar_frame">
+        <div class="pgsbar" :style="{width: `${width}%`}"></div>
+      </div>
+    </header>
+    <div class="main_frame">
+      <div class="main_ctn">
+        <div class="bigtitle">
+          When it comes to color in my home, I prefer…
+        </div>
+        <div class="img_frame">
+          <div v-for="item in 30" class="img_ctn nl_w25 lg_w33 md_w50 sm_w100">
+            <div class="img_box mult" :class="{sd: sd_list.indexOf(item)>-1}">
+              <img src="./static/img/01.jpg" @click="select(item)">
+              <span @click="select(item)">X</span>
+            </div>
+          </div>
+        </div>
+        <div class="next_frame">
+          <a class="nextbtn" @click="nextPage" :class="{disable: sd_list.length === 0}">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        width: 0,
+        sd_list: []
+      },
+      mounted() {
+        this.init();
+      },
+      methods: {
+        init() {
+          setTimeout(() => {
+            this.width = 50;
+          }, 500)
+        },
+        select(val) {
+          if (this.sd_list.indexOf(val) === -1) this.sd_list.push(val);
+          else this.sd_list.splice(this.sd_list.indexOf(val), 1);
+        },
+        nextPage() {
+          if (!this.sd_list.length) return false;
+          location.href = '/infoPage.html';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

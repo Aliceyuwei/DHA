@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DHA</title>
+  <link rel="stylesheet" href="./static/css/layout.css">
+  <script src="./static/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="header_ctn">
+        <div class="header_box"></div>
+      </div>
+      <div class="pgsbar_frame">
+        <div class="pgsbar" :style="{width: `${width}%`}"></div>
+      </div>
+    </header>
+    <div class="main_frame">
+      <div class="main_ctn">
+        <div class="bigtitle">
+          What’s your information?
+        </div>
+        <div class="info_frame">
+          <div class="info_box" v-for="item in ['姓名','性別','電話','地址','mail','備註']">
+            <div class="title">{{item}}</div>
+            <input class="txt" type="text">
+            <div class="hint_text"></div>
+          </div>
+        </div>
+        <div class="next_frame">
+          <a class="nextbtn" @click="nextPage">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        width: 50
+      },
+      mounted() {
+        this.init();
+      },
+      methods: {
+        init() {
+          setTimeout(() => {
+            this.width = 100;
+          }, 500)
+        },
+        nextPage() {
+          location.href = '/result.html';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
